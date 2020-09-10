@@ -1,19 +1,23 @@
 {
   "base_url": "https://wutali-nextjs-netlify-blog.netlify.app",
-  "site_title": "Next.js Netlify Blog",
-  "site_description": "Next.js blog template for Netlify",
+  "site_title": "Tat Tran's Blog",
+  "site_description": "Tat Tran blog nơi tôi chia sẻ tất cả những gì tôi biết với các bạn.",
   "site_keywords": [
     {
-      "keyword": "Next.js"
+      "keyword": "Tat Tran"
     },
     {
-      "keyword": "Netlify"
+      "keyword": "Tất Trần"
     },
     {
-      "keyword": "React"
+      "keyword": "Blinkkify"
+    },
+    {
+      "keyword": "Blinkk"
     }
   ],
   "posts_per_page": 5,
-  "twitter_account": "@my-account",
-  "github_account": "wutali"
+  "twitter_account": "@TatTran22",
+  "github_account": "TatTran22",
+  "facebook_account": "TatTran22"
 }

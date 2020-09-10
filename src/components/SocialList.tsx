@@ -9,7 +9,7 @@ export function SocialList({}) {
     <div>
       <a
         title='Facebook'
-        href={`https://facebook.com/${config.facebook_account}`}
+        href={`https://facebook.com/${config.fb}`}
         target='_blank'
         rel='noopener'
       >

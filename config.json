@@ -1,5 +1,5 @@
 {
-  "base_url": "https://blinkkify-blog.netlify.app",
+  "base_url": "https://blinkk-blog.netlify.app",
   "site_title": "Tat Tran's Blog",
   "site_description": "Tat Tran blog nơi tôi chia sẻ tất cả những gì tôi biết với các bạn.",
   "site_keywords": [
@@ -17,7 +17,8 @@
     }
   ],
   "posts_per_page": 5,
+  "facebook_account": "TatTran22",
   "twitter_account": "@TatTran22",
   "github_account": "TatTran22",
-  "facebook_account": "TatTran22"
+  "fb": "TatTran22"
 }

@@ -1,7 +1,9 @@
 export default function Copyright() {
   return (
     <>
-      <p>&copy; 2020</p>
+      <p>
+        <span></span>&copy; 2020 Tat Tran
+      </p>
       <style jsx>
         {`
           p {

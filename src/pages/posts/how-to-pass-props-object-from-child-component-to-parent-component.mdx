@@ -1,0 +1,327 @@
+---
+slug: how-to-pass-props-object-from-child-component-to-parent-component
+title: How to Pass Props Object from Child Component to Parent Component
+date: 2020-09-11
+author: blinkk
+tags:
+  - react
+  - web development
+---
+
+## Introduction
+
+When learning ReactJS, we often hear the term _props_. While it may sound confusing, props are nothing but objects which are used to pass data from one component to another. In this guide, we'll go through the React props in detail. We'll also look at how we can pass a props object from a child component to a parent component.
+
+## Let's Understand Props
+
+Normally we start with the JSX syntax in React to render some output to the browser. Essentially, JSX is a mix of HTML and JavaScript and tries to get the best out of both these languages.
+
+Below is an example of a basic React component:
+
+```jsx render=true
+import React, { Component } from 'react';
+class App extends Component {
+  render() {
+    const hello = 'Say Hello to learning Props/State in React!';
+    return (
+      <div>
+        <h1>{hello}</h1>
+      </div>
+    );
+  }
+}
+export default App;
+```
+
+The above component would render the message, "Say Hello to learning Props/State in React!" in the browser. Let's separate that out into its own `HelloReact` component and invoke it from the main `App` component, as shown below:
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <HelloReact />
+      </div>
+    );
+  }
+}
+
+class HelloReact extends Component {
+  render() {
+    const hello = 'Say Hello to learning Props/State in React!';
+    return <h1>{hello}</h1>;
+  }
+}
+export default App;
+```
+
+The next question we may have is how to pass some data as parameters from one React component to the other, as we would want to have component display dynamic data instead of static data. This is where React props would come into the picture. We pass data by adding some HTML attributes and we assign the data with JSX. We also need to add the curly brackets.
+
+Let's have a look at the below code where we pass the message from `App` to `HelloReact` component:
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  render() {
+    const hello = 'Say Hello to learning Props/State in React!';
+    return (
+      <div>
+        <HelloReact hello={hello} />
+      </div>
+    );
+  }
+}
+class HelloReact extends Component {
+  render() {
+    return <h1>{this.props.hello}</h1>;
+  }
+}
+export default App;
+```
+
+We can see that the props are received in React's `HelloReact` component via the `this` instance of our `HelloReact` class. One might wonder why the props are not available inside the render method. If that happened, it would behave similar to functional components. It seems the React team did consider that option, but they haven't yet updated the API for React class based components. Hopefully, that will happen sometime in the future.
+
+Let's have a look at our example using a functional component where the props are received as arguments in the function signature, as shown below:
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  render() {
+    const hello = 'Say Hello to learning Props/State in React!';
+    return (
+      <div>
+        <HelloReact hello={hello} />
+      </div>
+    );
+  }
+}
+const HelloReact = (props) => <h1>{props.hello}</h1>;
+export default App;
+```
+
+Since we'll always have the props in our function signature and that is almost always the only container object for our data, we can destructure the props within the function signature itself, as shown below:
+
+```jsx
+const HelloReact = ({ hello }) => <h1>{hello}</h1>;
+```
+
+Thus we can see that props enable us to pass variables from within one component to another component—that is, down our component tree. In the example above, the data was a string variable. However, props can be any type of data—integers, objects or even arrays. They can even be React components, as we'll see later in this guide. We can also define these props inline. For strings, we can pass props using either single quotes or double quotes (either of them should work). Below is an example of passing them inline:
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <HelloReact hello='Say Hello to learning Props/State in React!' />
+      </div>
+    );
+  }
+}
+const HelloReact = ({ hello }) => <h1>{hello}</h1>;
+export default App;
+```
+
+We can also pass any other kind of data structure as inline props. When passing objects, the syntax can be a bit confusing initially as we'll have two curly braces: one to represent our JSX and another for the object. This can get especially confusing when we pass a style object to a style attribute. Let's have a look at an example of passing an object below:
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <HelloReact
+          hello={{ text: 'Say Hello to learning Props/State in React!' }}
+        />
+      </div>
+    );
+  }
+}
+const HelloReact = ({ hello }) => <h1>{hello.text}</h1>;
+export default App;
+```
+
+Note that the above can cause performance issues because every time our component renders, a new object gets created each time. However, for someone starting to learn React, that should be fine.
+
+We have seen how props can be passed to a React component. We can also observe that props are passed only from the higher component to the lower component in our component tree. Thus, it seems there is no way to pass props from a child component to a parent component. We will look at this issue later on. The other thing we can see is that React's props are read-only—that is, we do not have any way to set props (it was possible to do that earlier). This behavior makes sense because the purpose of props is just to pass data from one component to another, i.e., only from a parent component to a child component.
+
+## Difference Between Props and State
+
+If we used only props and passed them from one component to another, they wouldn’t make our component interactive as we cannot change the props. Remember, props are read-only. Thus, React state comes into the picture, and that can be updated. Let's have a look at an example using React state:
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDisplayed: true,
+    };
+  }
+  toggleShowHide = () => {
+    this.setState((state) => ({ isDisplayed: !state.isDisplayed }));
+  };
+  render() {
+    return (
+      <div>
+        {this.state.isDisplayed ? <HelloReact hello={hello} /> : null}
+        <button onClick={this.toggleShowHide} type='button'>
+          Toggle to Show/Hide
+        </button>
+      </div>
+    );
+  }
+}
+const HelloReact = ({ hello }) => <h1>{hello}</h1>;
+export default App;
+```
+
+In the above example, we use a ternary operator to either show/hide the message. This is how conditional rendering works in React. The state is what actually makes our React components interactive. We can read/write our state, unlike the read-only props. What is really important to note is that whenever our state changes, the corresponding React component is re-rendered. Also, state can be passed down as props to any child component. Let's take a look at how that can be done:
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDisplayed: true,
+    };
+  }
+  toggleShowHide = () => {
+    this.setState((state) => ({ isDisplayed: !state.isDisplayed }));
+  };
+  render() {
+    const hello = 'Welcome to React';
+    return (
+      <div>
+        <HelloReact hello={hello} isDisplayed={this.state.isDisplayed} />
+        <button onClick={this.toggleShowHide} type='button'>
+          Toggle Show/Hide
+        </button>
+      </div>
+    );
+  }
+}
+const HelloReact = ({ hello, isDisplayed }) =>
+  isDisplayed ? <h1>{hello}</h1> : null;
+export default App;
+```
+
+Our child component is not aware fo whether the incoming props are state or coming as props from our parent component. The child component just consumes that data as props. Also, the child component re-renders whenever the incoming props get updated.
+
+Thus, every time our props or state get changed, the rendering of the corresponding component gets triggered again. This is how our overall app becomes interactive as state gets passed as props to the child component. Once state changes for a component which is passed as props down to the child component, then we see the app re-render again.
+
+## Passing Props from Child to Parent
+
+Most developers wonder about passing props from a child to a parent component when learning React. However, it’s not possible. Let's update the previous example with an additional `Button` component for toggling.
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  render() {
+    const hello = 'Say Hello to learning Props/State in React!';
+    return (
+      <div>
+        {isDisplayed ? <HelloReact hello={hello} /> : null}
+        <Button />
+      </div>
+    );
+  }
+}
+class Button extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDisplayed: true,
+    };
+  }
+  toggleShowHide = () => {
+    this.setState((state) => ({ isDisplayed: !state.isDisplayed }));
+  };
+  render() {
+    return (
+      <button onClick={this.toggleShowHide} type='button'>
+        Toggle Show/Hide
+      </button>
+    );
+  }
+}
+const HelloReact = ({ hello }) => <h1>{hello}</h1>;
+export default App;
+```
+
+We can see that the `Button` component manages its own state. Since the `Button` component is managing the `isDisplayed` property, it is not possible to pass it up to the parent as `props` to our `App` component. The `App` component uses the `isDisplayed` property for conditionally rendering the `HelloReact` component. Our app wouldn’t work this way at the moment. We need to lift our state up and make it available for all the other components as state (in this example, for the `App` component itself).
+
+Let's update our example, as below:
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDisplayed: true,
+    };
+  }
+  toggleShowHide = () => {
+    this.setState((state) => ({ isDisplayed: !state.isDisplayed }));
+  };
+  render() {
+    const hello = 'Say Hello to learning Props/State in React!';
+    return (
+      <div>
+        {this.state.isDisplayed ? <HelloReact hello={hello} /> : null}
+        <Button onClick={this.toggleShowHide} />
+      </div>
+    );
+  }
+}
+const Button = ({ onClick }) => (
+  <button onClick={onClick} type='button'>
+    Toggle Show/Hide
+  </button>
+);
+const HelloReact = ({ hello }) => <h1>{hello}</h1>;
+export default App;
+```
+
+The important thing to note is that our `App` component passes down a function via the props to our `Button` component in this case. This function gets used as the click handler for our `Button` component. But our `Button` component is not aware of the business logic of the click handler. It just knows that it needs to trigger the function whenever a user clicks on the button. In our `App` component, the state gets updated when the function we pass is invoked, and hence all the corresponding components make use of the updated state or consume it via props are re-rendered. Thus, we can even pass our state as props to our `HelloReact` component.
+
+```jsx
+import React, { Component } from 'react';
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDisplayed: true,
+    };
+  }
+  toggleShowHide = () => {
+    this.setState((state) => ({ isDisplayed: !state.isDisplayed }));
+  };
+  render() {
+    const hello = 'Say Hello to learning Props/State in React!';
+    return (
+      <div>
+        <HelloReact hello={hello} isDisplayed={this.state.isDisplayed} />
+        <Button onClick={this.toggleShowHide} />
+      </div>
+    );
+  }
+}
+const Button = ({ onClick }) => (
+  <button onClick={onClick} type='button'>
+    Toggle Show/Hide
+  </button>
+);
+const HelloReact = ({ hello, isDisplayed }) =>
+  isDisplayed ? <h1>{hello}</h1> : null;
+export default App;
+```
+
+Thus, we can see there is no way to pass props from a child component to a parent component. However, we can always pass around functions from the parent to child component. The child component can then make use of these functions. The function can then update the state in a parent component, as we saw above. Once our state gets changed, it is passed down as props again. Thus, all the relevant components get rendered again. A similar pattern can be used when we have multiple page components in our React app. If we want to pass data from one page to the other, we can lift up the state to the parent component (in most cases, the `App` component). The parent would have all the individual page components as its child. Thus, the data will be managed as state in the topmost level component and at the same time, we can pass it to any of the child components.
+
+## Conclusion
+
+In this guide, we’ve covered various ways to pass props in a React app. Remember that props are read-only and enable us to pass any data down our component tree. However, what makes React really interactive is the state system.

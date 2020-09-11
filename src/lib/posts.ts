@@ -1,9 +1,9 @@
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
-import yaml from "js-yaml";
+import fs from 'fs';
+import matter from 'gray-matter';
+import path from 'path';
+import yaml from 'js-yaml';
 
-const postsDirectory = path.join(process.cwd(), "src/pages/posts");
+const postsDirectory = path.join(process.cwd(), 'src/pages/posts');
 
 export type PostContent = {
   readonly date: string;
@@ -21,11 +21,11 @@ function fetchPostContent(): PostContent[] {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames
-    .filter((it) => it.endsWith(".mdx"))
+    .filter((it) => it.endsWith('.mdx'))
     .map((fileName) => {
       // Read markdown file as string
       const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
 
       // Use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents, {
@@ -39,12 +39,12 @@ function fetchPostContent(): PostContent[] {
         tags: string[];
         slug: string;
       };
-      const slug = fileName.replace(/\.mdx$/, "");
+      const slug = fileName.replace(/\.mdx$/, '');
 
       // Validate slug string
       if (matterData.slug !== slug) {
         throw new Error(
-          "slug field not match with the path of its content source"
+          'slug field not match with the path of its content source'
         );
       }
 

@@ -9,20 +9,6 @@ import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import { SocialList } from '../components/SocialList';
 
 export default function Index() {
-  let animeProps = {
-    translateY: ['-100vh', 0],
-    easing: 'easeOutSine',
-    duration: 2000,
-    direction: 'normal',
-    // loop: true,
-    delay: anime.stagger(100, { start: 500 }),
-  };
-  const hi = () => {
-    let h = "Hi, I'm Tat.";
-    let i = h.replace(/\S/g, "<span class='letter'>$&</span>");
-    return i;
-  };
-
   return (
     <Layout>
       <BasicMeta url={'/'} />
@@ -33,7 +19,14 @@ export default function Index() {
           <h1 className='m16'>
             <span className='text-wrapper'>
               <span className='letters'>
-                <Anime {...animeProps}>
+                <Anime
+                  translateY={['-100vh', 0]}
+                  easing='easeOutSine'
+                  duration={2000}
+                  direction='normal'
+                  // loop: true,
+                  delay={anime.stagger(100, { start: 500 })}
+                >
                   <span className='bio'>H</span>
                   <span className='bio'>i</span>
                   <span className='bio'>,</span>
@@ -100,6 +93,7 @@ export default function Index() {
         h1 {
           position: relative;
           width: 100%;
+          letter-spacing: 0.2rem;
         }
 
         h2 {
@@ -107,27 +101,9 @@ export default function Index() {
           font-weight: 400;
           line-height: 1.25;
         }
-        .ml6 {
-          position: relative;
-          font-weight: 900;
-          font-size: 3.3em;
-        }
 
-        .ml6 .text-wrapper {
-          position: relative;
-          display: inline-block;
-          padding-top: 0.2em;
-          padding-right: 0.05em;
-          padding-bottom: 0.1em;
-          overflow: hidden;
-        }
         .letters {
           display: flex;
-        }
-
-        .ml6 .bio {
-          display: inline-block;
-          line-height: 1em;
         }
 
         .g-blue {

@@ -1,0 +1,62 @@
+---
+slug: react-17-why-it-s-so-important
+title: React 17 - Why it's so important ?
+date: 2020-09-12
+author: blinkk
+tags:
+  - react
+  - web development
+---
+
+React 17 is out and it has https://github.com/TatTran22/blinkk-blog.gitbeen 2.5 years since the release of React 16, React 16.x included many new changes like Hooks,Context etc.,But the new React 17 has no new features but it's a right move they have done this time before going to that let's see some minor changes which has happened
+
+## Changes to Event Delegation:
+
+React will no longer attach event handlers at the document level. Instead, it will attach them to the root DOM container into which your React tree is rendered
+
+![Sample Image](https://reactjs.org/static/bb4b10114882a50090b8ff61b3c4d0fd/1e088/react_17_delegation.png)
+
+## Why this is important ?
+
+It will make it easier to use React with other JS frameworks.
+It is safer to use a React tree managed by one version inside a tree managed by a different React version.
+
+## No React import :
+
+If you were using Create React App boiler plate(cra) or npm to download react and you would be importing React in every jsx or js code ,now it is no longer required
+
+```jsx
+import React from 'react';
+```
+
+## onScroll Bubbling Event:
+
+In React previous version there was a lesser known bug , the parent element used to capture the scroll event of the children this was causing an issue in using the scroll event listener, this has been fixed now
+
+## No Event Pooling:
+
+For those who don't know what Event Pooling is: The event handlers that we have in any react-app are actually passed instances of SyntheticEvent(A Wrapper for native browser events so that they have consistent properties across different browsers).
+
+Whenever an event is triggered, it takes an instance from the pool and populates its properties and reuses it. When the event handler has finished running, all properties will be nullified and the synthetic event instance is released back into the pool.
+
+This was build to actually increase the performance but It didn't improve the performance in the modern browsers and also it used to confuse the developers so they decided to remove it.
+
+## Effect Cleanup Timing:
+
+The useEffect hook in React 16 runs asynchronously but the cleanup which we used , like this used to run synchronously this introduced an issue , Example: If you called an Api or An Animation and before the action is complete if the component gets unmounted
+
+Now it is no longer an issue as it runs asynchronously even if the component is unmounted , the cleanup will happen , resulting in better performance
+
+```jsx
+useEffect(() => {
+  event.subscribe();
+  return function cleanup() {
+    event.unsubscribe();
+  };
+});
+```
+
+You might be confused are these not features ?,these are more of changes internally and bug fixes good to know ,but this release is a right move, now is the right time to migrate your old react projects from class to functions based on hooks or implement context , this will give enough time for both business and developers to catch up to the fast pace in which react was moving.
+If you find any new feature , please put it in the comments
+
+_via Goutham JM_

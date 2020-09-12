@@ -37,8 +37,8 @@ The following instructions introduce common customization points like adding new
 
 ### Styling pages by a customized theme
 
-All source codes related to the blog are under [components](https://github.com/TatTran22/blinkk-blog/master/src/components), [pages](https://github.com/TatTran22/blinkk-blog/master/src/pages), and
-[layouts](https://github.com/TatTran22/blinkk-blog/master/src/layouts) directory.
+All source codes related to the blog are under [components](https://github.com/TatTran22/blinkk-blog/tree/master/src/components), [pages](https://github.com/TatTran22/blinkk-blog/master/src/pages), and
+[layouts](https://github.com/TatTran22/blinkk-blog/tree/master/src/layouts) directory.
 You can modify it freely if you want to apply your design theme.
 All components use [styled-jsx](https://github.com/vercel/styled-jsx) and [css-modules](https://github.com/css-modules/css-modules) to define their styles, but you can choose any styling libraries for designing your theme.
 
@@ -60,24 +60,24 @@ src
 The category metadata that associates with content have the same relationship with the authors' one.
 Then reference these implementations for adding new metadata:
 
-- [public/admin/config.yml](https://github.com/TatTran22/blinkk-blog/master/public/admin/config.yml#L51): author metadata definition for Netlify CMS
-- [src/lib/authors.tsx](https://github.com/TatTran22/blinkk-blog/master/src/lib/authors.ts): fetches metadata and defines utility functions for components
-- [meta/authors.yml](https://github.com/TatTran22/blinkk-blog/master/src/meta/authors.yml): author content managed by Netlify CMS
-- [layouts/index.tsx](https://github.com/TatTran22/blinkk-blog/master/src/layouts/index.tsx): displays author content for each page
+- [public/admin/config.yml](https://github.com/TatTran22/blinkk-blog/tree/master/public/admin/config.yml#L51): author metadata definition for Netlify CMS
+- [src/lib/authors.tsx](https://github.com/TatTran22/blinkk-blog/tree/master/src/lib/authors.ts): fetches metadata and defines utility functions for components
+- [meta/authors.yml](https://github.com/TatTran22/blinkk-blog/tree/master/src/meta/authors.yml): author content managed by Netlify CMS
+- [layouts/index.tsx](https://github.com/TatTran22/blinkk-blog/tree/master/src/layouts/index.tsx): displays author content for each page
 
 You understood they have four steps to add the category metadata on your project after you read the above source codes:
 
 1. Define the category metadata on the above Netlify config file
-2. Create an empty file named with `categories.yml` under [meta](https://github.com/TatTran22/blinkk-blog/master/src/meta/) directory
+2. Create an empty file named with `categories.yml` under [meta](https://github.com/TatTran22/blinkk-blog/tree/master/src/meta/) directory
 3. Create a new module for fetching category metadata
-4. Display the category metadata on [layouts](https://github.com/TatTran22/blinkk-blog/master/src/layouts/index.tsx#L71) or other components you want
+4. Display the category metadata on [layouts](https://github.com/TatTran22/blinkk-blog/tree/master/src/layouts/index.tsx#L71) or other components you want
 
 It is all you have to do. After that, you can access Netlify CMS and create new categories at any time.
 
 ### Locale settings for Netlify CMS
 
-Modify [config.yml](https://github.com/TatTran22/blinkk-blog/master/public/admin/config.yml) and
-[index.html](https://github.com/TatTran22/blinkk-blog/master/public/admin/index.html) under [public/admin](https://github.com/TatTran22/blinkk-blog/master/public/admin/) directory
+Modify [config.yml](https://github.com/TatTran22/blinkk-blog/tree/master/public/admin/config.yml) and
+[index.html](https://github.com/TatTran22/blinkk-blog/tree/master/public/admin/index.html) under [public/admin](https://github.com/TatTran22/blinkk-blog/tree/master/public/admin/) directory
 as following instructions:
 
 [Netlify CMS - Configuration Options #Locale](https://www.netlifycms.org/docs/configuration-options/#locale)

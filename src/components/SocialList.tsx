@@ -43,12 +43,12 @@ export function SocialList({}) {
 
         .icon {
           overflow: hidden;
-          transition-duration: 0.7s;
+          transition-duration: 0.3s;
           transition-property: transform;
         }
         .icon:hover {
-          transform: rotate(360deg);
-          -webkit-transform: rotate(360deg);
+          transform: scale(1.2);
+          -webkit-transform: scale(1.2);
         }
         a {
           display: inline-block;

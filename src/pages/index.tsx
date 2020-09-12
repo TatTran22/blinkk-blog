@@ -89,6 +89,7 @@ export default function Index() {
           justify-content: center;
           flex: 1 1 auto;
           padding: 0 1.5rem;
+          overflow: hidden;
         }
         h1 {
           position: relative;

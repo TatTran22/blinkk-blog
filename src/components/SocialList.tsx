@@ -4,17 +4,21 @@ import GitHub from '../assets/github-alt.svg';
 import Facebook from '../assets/facebook-alt-24px-filled.svg';
 import config from '../lib/config';
 
+// import Anime, { anime } from 'react-anime';
+
 export function SocialList({}) {
   return (
-    <div>
+    <div className='social-list'>
       <a
         title='Facebook'
         href={`https://facebook.com/${config.facebook_account}`}
         target='_blank'
         rel='noopener'
+        className='icon'
       >
         <Facebook width={24} height={24} fill={'#222'} />
       </a>
+
       {/* <a
         title='Twitter'
         href={`https://twitter.com/${config.twitter_account}`}
@@ -28,10 +32,24 @@ export function SocialList({}) {
         href={`https://github.com/${config.github_account}`}
         target='_blank'
         rel='noopener'
+        className='icon'
       >
         <GitHub width={24} height={24} fill={'#222'} />
       </a>
       <style jsx>{`
+        .social-list {
+          width: 100%;
+        }
+
+        .icon {
+          overflow: hidden;
+          transition-duration: 0.7s;
+          transition-property: transform;
+        }
+        .icon:hover {
+          transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+        }
         a {
           display: inline-block;
         }

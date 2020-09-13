@@ -49,7 +49,7 @@ export default function Index() {
             duration={3000}
             direction='reverse'
             // loop={true}
-            // delay={10000}
+            delay={100}
             translateX='-100em'
             scale={[1, 0.1]}
             // rotate='1080'
@@ -61,7 +61,7 @@ export default function Index() {
             duration={3000}
             direction='reverse'
             // loop={true}
-            // delay={10000}
+            delay={100}
             translateX='300em'
             scale={[1, 0.1]}
             // rotate='1080'
@@ -73,7 +73,7 @@ export default function Index() {
             duration={3000}
             direction='reverse'
             // loop={true}
-            // delay={10000}
+            delay={100}
             translateY='100em'
             scale={[1, 0.1]}
             // rotate='1080'

@@ -1,0 +1,183 @@
+---
+slug: magento-2-ssh-cli-commands-list
+title: Magento 2 SSH/CLI Commands List
+date: 2021-02-18
+author: blinkk
+tags:
+  - magento
+  - command
+---
+
+If you regularly run and set up the Magento 2 website, you will need to use the SSH and CLI commands. The commands in Magento are quite a few, and you’ll probably miss out on some useful ones. I have compiled all the commands in Magento 2 SSH/CLI Commands List. You can bookmark this post, so you can refer to it every time you need it.
+
+You can get more information about the commands by adding -h or –help suffix to the command.
+
+For example:
+
+```
+php bin/magento setup:upgrade -h
+php bin/magento setup:upgrade --help
+```
+
+It can also be used with shortcuts commands
+
+```
+php bin/magento s:u -h
+php bin/magento s:u --help
+```
+
+#### All Magento 2 CLI Commands
+
+<div style={{"overflowX": "auto"}}>
+
+| Commands&nbsp;&nbsp;&nbsp;                                          | Description&nbsp;&nbsp;&nbsp;                                                                               |
+| ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| _<div style={{"backgroundcolor" : "#F5F8FA"}}>Options</div>_        |
+| `php bin/magento --help`                                            | _Display this help message_                                                                                 |
+| `php bin/magento --quiet`                                           | _Do not output any message_                                                                                 |
+| `php bin/magento --version`                                         | _Do not output any message_                                                                                 |
+| `php bin/magento --version`                                         | _Display this application version_                                                                          |
+| `php bin/magento --ansi`                                            | _Force ANSI output_                                                                                         |
+| `php bin/magento --no-ansi`                                         | _Disable ANSI output_                                                                                       |
+| `php bin/magento --no-interaction`                                  | _Do not ask any interactive question_                                                                       |
+| `php bin/magento --verbose`                                         | _Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug_        |
+| ###### Available commands                                           |                                                                                                             |
+| php bin/magento help                                                | Displays help for a command                                                                                 |
+| php bin/magento list                                                | Lists commands                                                                                              |
+| ###### admin                                                        |
+| php bin/magento admin:user:create                                   | Creates an administrator                                                                                    |
+| php bin/magento admin:user:unlock                                   | Unlock Admin Account                                                                                        |
+| ###### app                                                          |
+| php bin/magento app:config:dump                                     | Create dump of application                                                                                  |
+| php bin/magento app:config:import                                   | Import data from shared configuration files to appropriate data storage                                     |
+| php bin/magento app:config:status                                   | Checks if config propagation requires update                                                                |
+| ###### braintree                                                    |
+| php bin/magento braintree:migrate                                   | Migrate stored cards from a Magento 1 database                                                              |
+| ###### cache                                                        |
+| php bin/magento cache:clean                                         | Cleans cache type(s)                                                                                        |
+| php bin/magento cache:disable                                       | Disables cache type(s)                                                                                      |
+| php bin/magento cache:enable                                        | Enables cache type(s)                                                                                       |
+| php bin/magento cache:flush                                         | Flushes cache storage used by cache type(s)                                                                 |
+| php bin/magento cache:status                                        | Checks cache status                                                                                         |
+| ###### catalog                                                      |
+| php bin/magento catalog:images:resize                               | Creates resized product images                                                                              |
+| php bin/magento catalog:product:attributes:cleanup                  | Removes unused product attributes                                                                           |
+| ###### config                                                       |
+| php bin/magento config:sensitive:set                                | Set sensitive configuration values                                                                          |
+| php bin/magento config:set                                          | Change system configuration                                                                                 |
+| php bin/magento config:show                                         | Shows configuration value for given path. If path is not specified, all saved values will be shown          |
+| ###### cron                                                         |
+| php bin/magento cron:install                                        | Generates and installs crontab for current user                                                             |
+| php bin/magento cron:remove                                         | Removes tasks from crontab                                                                                  |
+| php bin/magento cron:run                                            | Runs jobs by schedule                                                                                       |
+| ###### customer                                                     |
+| php bin/magento customer:hash:upgrade                               | Upgrade customer’s hash according to the latest algorithm                                                   |
+| ###### deploy                                                       |
+| php bin/magento deploy:mode:set                                     | Set application mode                                                                                        |
+| php bin/magento deploy:mode:show                                    | Displays current application mode                                                                           |
+| ###### dev                                                          |
+| php bin/magento dev:di:info                                         | Provides information on Dependency Injection configuration for the Command                                  |
+| php bin/magento dev:profiler:disable                                | Disable the profiler                                                                                        |
+| php bin/magento dev:profiler:enable                                 | Enable the profiler                                                                                         |
+| php bin/magento dev:query-log:disable                               | Disable DB query logging                                                                                    |
+| php bin/magento dev:query-log:enable                                | Enable DB query logging                                                                                     |
+| php bin/magento dev:source-theme:deploy                             | Collects and publishes source files for theme                                                               |
+| php bin/magento dev:template-hints:disable                          | Disable frontend template hints. A cache flush might be required                                            |
+| php bin/magento dev:template-hints:enable                           | Enable frontend template hints. A cache flush might be required                                             |
+| php bin/magento dev:template-hints:status                           | Show frontend template hints status                                                                         |
+| php bin/magento dev:tests:run                                       | Runs tests                                                                                                  |
+| php bin/magento dev:urn-catalog:generate                            | Generates the catalog of URNs to \*.xsd mappings for the IDE to highlight xml                               |
+| php bin/magento dev:xml:convert                                     | Converts XML file using XSL style sheets                                                                    |
+| ###### dotdigital                                                   |
+| php bin/magento dotdigital:connector:automap                        | Auto-map data fields                                                                                        |
+| php bin/magento dotdigital:connector:enable                         | Add Dotdigital API credentials and enable the connector                                                     |
+| php bin/magento dotdigital:migrate                                  | Migrate data into email\* tables to sync with Engagement Cloud                                              |
+| php bin/magento dotdigital:sync                                     | Run syncs to populate email\* tables before importing to Engagement Cloud                                   |
+| ###### downloadable                                                 |
+| php bin/magento downloadable:domains:add                            | Add domains to the downloadable domains whitelist                                                           |
+| php bin/magento downloadable:domains:remove                         | Remove domains from the downloadable domains whitelist                                                      |
+| php bin/magento downloadable:domains:show                           | Display downloadable domains whitelist                                                                      |
+| ###### encryption                                                   |
+| php bin/magento encryption:payment-data:update                      | Re-encrypts encrypted credit card data with latest encryption cipher                                        |
+| ###### i18n                                                         |
+| php bin/magento i18n:collect-phrases                                | Discovers phrases in the codebase                                                                           |
+| php bin/magento i18n:pack                                           | Saves language package                                                                                      |
+| php bin/magento i18n:uninstall                                      | Uninstalls language packages                                                                                |
+| ###### indexer                                                      |
+| php bin/magento indexer:info                                        | Shows allowed Indexers                                                                                      |
+| php bin/magento indexer:reindex                                     | Reindexes Data                                                                                              |
+| php bin/magento indexer:reset                                       | Resets indexer status to invalid                                                                            |
+| php bin/magento indexer:set-dimensions-mode                         | Set Indexer Dimensions Mode                                                                                 |
+| php bin/magento indexer:set-mode                                    | Sets index mode type                                                                                        |
+| php bin/magento indexer:show-dimensions-mode                        | Shows Indexer Dimension Mode                                                                                |
+| php bin/magento indexer:show-mode                                   | Shows Index Mode                                                                                            |
+| php bin/magento indexer:status                                      | Shows status of Indexer                                                                                     |
+| ###### info                                                         |
+| php bin/magento info:adminuri                                       | Displays the Magento Admin URI                                                                              |
+| php bin/magento info:backups:list                                   | Prints list of available backup files                                                                       |
+| php bin/magento info:currency:list                                  | Displays the list of available currencies                                                                   |
+| php bin/magento info:dependencies:show-framework                    | Shows number of dependencies on Magento framework                                                           |
+| php bin/magento info:dependencies:show-modules                      | Shows number of dependencies between modules                                                                |
+| php bin/magento info:dependencies:show-modules-circular             | Shows number of circular dependencies between modules                                                       |
+| php bin/magento info:language:list                                  | Displays the list of available timezones                                                                    |
+| ###### inventory                                                    |
+| php bin/magento inventory:reservation:create-compensations          | Create reservations by provided compensation arguments                                                      |
+| php bin/magento inventory:reservation:list-inconsistencies          | Show all orders and products with salable quantity inconsistencies                                          |
+| inventory-geonames                                                  |                                                                                                             |
+| php bin/magento inventory-geonames:import                           | Download and import geo names for source selection algorithm                                                |
+| ###### maintenance                                                  |
+| php bin/magento maintenance:allow-ips                               | Sets maintenance mode exempt IPs                                                                            |
+| php bin/magento maintenance:disable                                 | Disables maintenance mode                                                                                   |
+| php bin/magento maintenance:enable                                  | Enables maintenance mode                                                                                    |
+| php bin/magento maintenance:status                                  | Displays maintenance mode status                                                                            |
+| ###### media-content                                                |
+| php bin/magento media-content:sync                                  | Synchronize content with assets                                                                             |
+| ###### media-gallery                                                |
+| php bin/magento media-gallery:sync                                  | Synchronize media storage and media assets in the database                                                  |
+| ###### module                                                       |
+| php bin/magento module:config:status                                | Checks the modules configuration in the 'app/etc/config.php' file and reports if they are up to date or not |
+| php bin/magento module:disable                                      | Disables specified modules                                                                                  |
+| php bin/magento module:enable                                       | Enables specified modules                                                                                   |
+| php bin/magento module:status                                       | Displays status of modules                                                                                  |
+| php bin/magento module:uninstall                                    | Uninstalls modules installed by composer                                                                    |
+| ###### newrelic                                                     |
+| php bin/magento module newrelic:create:deploy-marker                | Check the deploy queue for entries and create an appropriate deploy marker                                  |
+| ###### queue                                                        |
+| php bin/magento queue:consumers:list                                | List of MessageQueue consumers                                                                              |
+| php bin/magento queue:consumers:start                               | Start MessageQueue consumer                                                                                 |
+| ###### sampledata                                                   |
+| php bin/magento sampledata:deploy                                   | Deploy sample data modules for composer-based Magento installations                                         |
+| php bin/magento sampledata:remove                                   | Remove all sample data packages from composer.json                                                          |
+| php bin/magento sampledata:reset                                    | Reset all sample data modules for re-installation                                                           |
+| ###### security                                                     |
+| php bin/magento security:recaptcha:disable-for-user-forgot-password | Disable reCAPTCHA for admin user forgot password form                                                       |
+| php bin/magento security:recaptcha:disable-for-user-login           | Disable reCAPTCHA for admin user login form                                                                 |
+| ###### setup                                                        |
+| php bin/magento setup:backup                                        | Takes backup of Magento Application code base, media and database                                           |
+| php bin/magento setup:config:set                                    | Creates or modifies the deployment configuration                                                            |
+| php bin/magento setup:db-data:upgrade                               | Installs and upgrades data in the DB                                                                        |
+| php bin/magento setup:db-declaration:generate-patch                 | Generate patch and put it in specific folder                                                                |
+| php bin/magento setup:db-declaration:generate-whitelist             | Generate whitelist of tables and columns that are allowed to be edited by declaration installer             |
+| php bin/magento setup:db-schema:upgrade                             | Installs and upgrades the DB schema                                                                         |
+| php bin/magento setup:db:status                                     | Checks if DB schema or data requires upgrade                                                                |
+| php bin/magento setup:di:compile php bin/magento s:d:c              | Generates DI configuration and all missing classes that can be auto-generated                               |
+| php bin/magento setup:install                                       | Installs the Magento application                                                                            |
+| php bin/magento setup:performance:generate-fixtures                 | Generates fixtures                                                                                          |
+| php bin/magento setup:rollback                                      | Rolls back Magento Application codebase, media and database                                                 |
+| php bin/magento setup:static-content:deploy                         | Deploys static view files                                                                                   |
+| php bin/magento setup:store-config:set                              | Installs the store configuration. Deprecated since 2.2.0. Use config:set instead                            |
+| php bin/magento setup:uninstall                                     | Uninstalls the Magento application                                                                          |
+| php bin/magento setup:upgrade                                       | Upgrades the Magento application, DB data, and schema                                                       |
+| ###### store                                                        |
+| php bin/magento store:list                                          | Displays the list of stores                                                                                 |
+| php bin/magento store:website:list                                  | Displays the list of websites                                                                               |
+| ###### theme                                                        |
+| php bin/magento theme:uninstall                                     | Uninstalls theme                                                                                            |
+| varnish                                                             |                                                                                                             |
+| php bin/magento varnish:vcl:generate                                | Generates Varnish VCL and echos it to the command line                                                      |
+| ###### yotpo                                                        |
+| php bin/magento yotpo:reset                                         | Reset Yotpo sync flags &/or configurations                                                                  |
+| php bin/magento yotpo:sync                                          | Sync Yotpo manually (reviews module)                                                                        |
+| php bin/magento                                                     | Manually send platform metadata to Yotpo                                                                    |
+
+</div>

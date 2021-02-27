@@ -16,8 +16,9 @@
       "keyword": "Blinkk"
     }
   ],
-  "posts_per_page": 5,
+  "posts_per_page": 10,
   "facebook_account": "TatTran22",
   "twitter_account": "@TatTran22",
-  "github_account": "TatTran22"
+  "github_account": "TatTran22",
+  "telegram_account": "TatTran22"
 }

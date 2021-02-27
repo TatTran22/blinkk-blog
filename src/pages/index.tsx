@@ -50,34 +50,12 @@ export default function Index() {
             direction='reverse'
             // loop={true}
             delay={100}
-            translateX='-100em'
-            scale={[1, 0.1]}
-            // rotate='1080'
-          >
-            <span className='handle'>@TatTran22</span>
-          </Anime>
-          <Anime
-            easing='easeInExpo'
-            duration={3000}
-            direction='reverse'
-            // loop={true}
-            delay={100}
-            translateX='300em'
-            scale={[1, 0.1]}
-            // rotate='1080'
-          >
-            <h2>Welcome to my blog! ✌</h2>
-          </Anime>
-          <Anime
-            easing='easeInExpo'
-            duration={3000}
-            direction='reverse'
-            // loop={true}
-            delay={100}
             translateY='100em'
             scale={[1, 0.1]}
             // rotate='1080'
           >
+            <span className='handle'>@TatTran22</span>
+            <h2>Welcome to my blog! ✌</h2>
             <SocialList />
           </Anime>
         </div>

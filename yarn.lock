@@ -1623,6 +1623,11 @@
     "json-schema-traverse" "^0.4.1"
     "uri-js" "^4.2.2"
 
+"animejs@^3.2.1", "animejs@^3.2.x":
+  "integrity" "sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A=="
+  "resolved" "https://registry.npmjs.org/animejs/-/animejs-3.2.1.tgz"
+  "version" "3.2.1"
+
 "anser@1.4.9":
   "integrity" "sha512-AI+BjTeGt2+WFk4eWcqbQ7snZpDBt8SaLlj0RT2h5xfdWaiy51OjYvqwMrNzJLGy8iOAL6nKDITWO+rd4MkYEA=="
   "resolved" "https://registry.npmjs.org/anser/-/anser-1.4.9.tgz"
@@ -2448,9 +2453,9 @@
   "version" "0.1.1"
 
 "core-js-compat@^3.8.1", "core-js-compat@^3.9.0":
-  "integrity" "sha512-jXAirMQxrkbiiLsCx9bQPJFA6llDadKMpYrBJQJ3/c4/vsPP/fAf29h24tviRlvwUL6AmY5CHLu2GvjuYviQqA=="
-  "resolved" "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.9.1.tgz"
-  "version" "3.9.1"
+  "integrity" "sha512-9yVewub2MXNYyGvuLnMHcN1k9RkvB7/ofktpeKTIaASyB88YYqGzUnu0ywMMhJrDHOMiTjSHWGzR+i7Wb9Z1kQ=="
+  "resolved" "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.10.0.tgz"
+  "version" "3.10.0"
   dependencies:
     "browserslist" "^4.16.3"
     "semver" "7.0.0"
@@ -3242,6 +3247,11 @@
   "integrity" "sha1-FQStJSMVjKpA20onh8sBQRmU6k8="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
+
+"fsevents@^2.1.2", "fsevents@~2.3.1":
+  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
@@ -5600,7 +5610,15 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
-"react-dom@^15.0.0 || ^16.0.0", "react-dom@^16.0.0 || ^15.0.0 || ~0.14.0", "react-dom@^16.0.0-0", "react-dom@^16.6.0 || ^17", "react-dom@^16.9.0 || ^17", "react-dom@>=16.13.1 <=17.0.1", "react-dom@17.0.2":
+"react-anime@^4.0.3", "react-anime@^4.0.4":
+  "integrity" "sha512-keyFmNCVEeKPT13TaHuw7p4OWsHaWI3/u+ivTcxUbmZalKnEQKhxuSTJTlYJLHbMCL2kWoLdLZXz/iaJ+CxGVA=="
+  "resolved" "https://registry.npmjs.org/react-anime/-/react-anime-4.0.4.tgz"
+  "version" "4.0.4"
+  dependencies:
+    "animejs" "^3.2.x"
+    "react-anime" "^4.0.3"
+
+"react-dom@^15.0.0 || ^16.0.0", "react-dom@^16.0.0 || ^15.0.0 || ~0.14.0", "react-dom@^16.0.0-0", "react-dom@^16.6.0 || ^17", "react-dom@^16.9.0 || ^17", "react-dom@^16.x || ^17.x", "react-dom@>=16.13.1 <=17.0.1", "react-dom@17.0.2":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -5670,7 +5688,7 @@
     "prop-types" "15.7.2"
     "youtube-player" "5.5.2"
 
-"react@^0.14 || ^15.0.0 || ^16.0.0-alpha", "react@^15.0.0 || ^16.0.0", "react@^16.0.0 || ^15.0.0 || ~0.14.0", "react@^16.0.0-0", "react@^16.13.1 || ^17.0.0", "react@^16.14.0", "react@^16.6.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.9.0 || ^17", "react@>=0.14.1", "react@>=16.13.1 <=17.0.1", "react@0.13.x || 0.14.x || ^15.0.0-0 || ^16.0.0-0", "react@15.x.x || 16.x.x || 17.x.x", "react@17.0.2":
+"react@^0.14 || ^15.0.0 || ^16.0.0-alpha", "react@^15.0.0 || ^16.0.0", "react@^16.0.0 || ^15.0.0 || ~0.14.0", "react@^16.0.0-0", "react@^16.13.1 || ^17.0.0", "react@^16.14.0", "react@^16.6.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.9.0 || ^17", "react@^16.x || ^17.x", "react@>=0.14.1", "react@>=16.13.1 <=17.0.1", "react@0.13.x || 0.14.x || ^15.0.0-0 || ^16.0.0-0", "react@15.x.x || 16.x.x || 17.x.x", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"

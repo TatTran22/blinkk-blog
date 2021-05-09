@@ -1,57 +1,28 @@
-import React from 'react';
-import Twitter from '../assets/twitter-alt.svg';
-import GitHub from '../assets/github-alt.svg';
-import Telegram from '../assets/telegram_app.svg';
-import Facebook from '../assets/facebook-alt-24px-filled.svg';
-import config from '../lib/config';
-
-// import Anime, { anime } from 'react-anime';
+import React from "react";
+import Twitter from "../assets/twitter-alt.svg";
+import GitHub from "../assets/github-alt.svg";
+import config from "../lib/config";
 
 export function SocialList({}) {
   return (
-    <div className='social-list'>
+    <div>
       <a
-        title='Facebook'
-        href={`https://facebook.com/${config.facebook_account}`}
-        target='_blank'
-        rel='noopener'
-        className='icon'
+        title="Twitter"
+        href={`https://twitter.com/${config.twitter_account}`}
+        target="_blank"
+        rel="noopener"
       >
-        <Facebook width={24} height={24} fill={'#222'} />
-      </a>
-
-      <a
-        title='Telegram'
-        href={`https://t.me/${config.telegram_account}`}
-        target='_blank'
-        rel='noopener'
-        className="icon"
-      >
-        <Telegram width={24} height={24} fill={'#222'} />
+        <Twitter width={24} height={24} fill={"#222"} />
       </a>
       <a
-        title='GitHub'
+        title="GitHub"
         href={`https://github.com/${config.github_account}`}
-        target='_blank'
-        rel='noopener'
-        className='icon'
+        target="_blank"
+        rel="noopener"
       >
-        <GitHub width={24} height={24} fill={'#222'} />
+        <GitHub width={24} height={24} fill={"#222"} />
       </a>
       <style jsx>{`
-        .social-list {
-          width: 100%;
-        }
-
-        .icon {
-          overflow: hidden;
-          transition-duration: 0.3s;
-          transition-property: transform;
-        }
-        .icon:hover {
-          transform: scale(1.2);
-          -webkit-transform: scale(1.2);
-        }
         a {
           display: inline-block;
         }

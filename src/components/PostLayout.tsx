@@ -1,95 +1,95 @@
-import Head from 'next/head';
-import React from 'react';
-import styles from '../../public/styles/content.module.css';
-import Author from '../components/Author';
-import Copyright from '../components/Copyright';
-import Date from '../components/Date';
-import Layout from '../components/Layout';
-import BasicMeta from '../components/meta/BasicMeta';
-import JsonLdMeta from '../components/meta/JsonLdMeta';
-import OpenGraphMeta from '../components/meta/OpenGraphMeta';
-import TwitterCardMeta from '../components/meta/TwitterCardMeta';
-import { SocialList } from '../components/SocialList';
-import TagButton from '../components/TagButton';
-import { getAuthor } from '../lib/authors';
-import { getTag } from '../lib/tags';
+import React from "react";
+import styles from "../../public/styles/content.module.css";
+import Author from "./Author";
+import Copyright from "./Copyright";
+import Date from "./Date";
+import Layout from "./Layout";
+import BasicMeta from "./meta/BasicMeta";
+import JsonLdMeta from "./meta/JsonLdMeta";
+import OpenGraphMeta from "./meta/OpenGraphMeta";
+import TwitterCardMeta from "./meta/TwitterCardMeta";
+import { SocialList } from "./SocialList";
+import TagButton from "./TagButton";
+import { getAuthor } from "../lib/authors";
+import { getTag } from "../lib/tags";
 
 type Props = {
   title: string;
   date: Date;
   slug: string;
-  description: string;
   tags: string[];
   author: string;
+  description?: string;
+  children: React.ReactNode;
 };
-export default function Index({
+export default function PostLayout({
   title,
   date,
   slug,
   author,
   tags,
-  description,
+  description = "",
+  children,
 }: Props) {
-  const keywords = tags.map((it) => getTag(it).name);
+  const keywords = tags.map(it => getTag(it).name);
   const authorName = getAuthor(author).name;
-  return ({ children: content }) => {
-    return (
-      <Layout>
-        <BasicMeta
-          url={`/posts/${slug}`}
-          title={title}
-          keywords={keywords}
-          description={description}
-        />
-        <TwitterCardMeta
-          url={`/posts/${slug}`}
-          title={title}
-          description={description}
-        />
-        <OpenGraphMeta
-          url={`/posts/${slug}`}
-          title={title}
-          description={description}
-        />
-        <JsonLdMeta
-          url={`/posts/${slug}`}
-          title={title}
-          keywords={keywords}
-          date={date}
-          author={authorName}
-          description={description}
-        />
-        <div className={'container'}>
-          <article>
-            <header>
-              <h1>{title}</h1>
-              <div className={'metadata'}>
-                <div>
-                  <Date date={date} />
-                </div>
-                <div>
-                  <Author author={getAuthor(author)} />
-                </div>
+  return (
+    <Layout>
+      <BasicMeta
+        url={`/posts/${slug}`}
+        title={title}
+        keywords={keywords}
+        description={description}
+      />
+      <TwitterCardMeta
+        url={`/posts/${slug}`}
+        title={title}
+        description={description}
+      />
+      <OpenGraphMeta
+        url={`/posts/${slug}`}
+        title={title}
+        description={description}
+      />
+      <JsonLdMeta
+        url={`/posts/${slug}`}
+        title={title}
+        keywords={keywords}
+        date={date}
+        author={authorName}
+        description={description}
+      />
+      <div className={"container"}>
+        <article>
+          <header>
+            <h1>{title}</h1>
+            <div className={"metadata"}>
+              <div>
+                <Date date={date} />
               </div>
-            </header>
-            <div className={styles.content}>{content}</div>
-            <ul className={'tag-list'}>
-              {tags.map((it, i) => (
-                <li key={i}>
-                  <TagButton tag={getTag(it)} />
-                </li>
-              ))}
-            </ul>
-          </article>
-          <footer>
-            <div className={'social-list'}>
-              <SocialList />
+              <div>
+                <Author author={getAuthor(author)} />
+              </div>
             </div>
-            <Copyright />
-          </footer>
-        </div>
-        <style jsx>
-          {`
+          </header>
+          <div className={styles.content}>{children}</div>
+          <ul className={"tag-list"}>
+            {tags.map((it, i) => (
+              <li key={i}>
+                <TagButton tag={getTag(it)} />
+              </li>
+            ))}
+          </ul>
+        </article>
+        <footer>
+          <div className={"social-list"}>
+            <SocialList />
+          </div>
+          <Copyright />
+        </footer>
+      </div>
+      <style jsx>
+        {`
             .container {
               display: block;
               max-width: 36rem;
@@ -97,6 +97,7 @@ export default function Index({
               margin: 0 auto;
               padding: 0 1.5rem;
               box-sizing: border-box;
+              z-index: 0;
             }
             .metadata div {
               display: inline-block;
@@ -107,9 +108,7 @@ export default function Index({
             }
             h1 {
               margin: 0 0 0.5rem;
-              font-size: 3rem;
-              letter-spacing: -0.066875rem;
-              font-weight: 700;
+              font-size: 2.25rem;
             }
             .tag-list {
               list-style: none;
@@ -133,9 +132,9 @@ export default function Index({
               }
             }
           `}
-        </style>
-        <style global jsx>
-          {`
+      </style>
+      <style global jsx>
+        {`
             /* Syntax highlighting */
             .token.comment,
             .token.prolog,
@@ -203,7 +202,7 @@ export default function Index({
               color: #032f62;
             }
 
-            .language-jsx span[class='comment'] {
+            .language-jsx span[class="comment"] {
               color: pink;
             }
 
@@ -233,8 +232,7 @@ export default function Index({
               color: #005cc5;
             }
           `}
-        </style>
-      </Layout>
-    );
-  };
+      </style>
+    </Layout>
+  );
 }

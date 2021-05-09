@@ -1,4 +1,4 @@
-import config from '../../config.json';
+import config from "../../config.json";
 
 type Config = {
   readonly base_url: string;
@@ -8,8 +8,6 @@ type Config = {
   readonly posts_per_page: number;
   readonly twitter_account: string;
   readonly github_account: string;
-  readonly facebook_account: string;
-  readonly telegram_account: string;
 };
 
 export default config as Config;

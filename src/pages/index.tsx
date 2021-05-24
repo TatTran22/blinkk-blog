@@ -8,6 +8,7 @@ import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import { SocialList } from '../components/SocialList';
 
 export default function Index() {
+  function myAnimate() {}
   return (
     <Layout>
       <BasicMeta url={'/'} />
@@ -15,48 +16,23 @@ export default function Index() {
       <TwitterCardMeta url={'/'} />
       <div className='container'>
         <div>
-          <h1 className='m16'>
-            <span className='text-wrapper'>
-              <span className='letters'>
-                {/* <Anime
-                  translateY={['-100vh', 0]}
-                  easing='easeOutSine'
-                  duration={2000}
-                  direction='normal'
-                  // loop: true,
-                  delay={500}
-                > */}
-                <span className='bio'>H</span>
-                <span className='bio'>i</span>
-                <span className='bio'>,</span>
-                <span className='bio'>&nbsp;</span>
-                <span className='bio'>I</span>
-                <span className='bio'>'</span>
-                <span className='bio'>m</span>
-                <span className='bio'>&nbsp;</span>
-                <span className='bio g-blue'>T</span>
-                <span className='bio g-red'>a</span>
-                <span className='bio g-yellow'>t</span>
-                <span className='bio g-green'>.</span>
-                {/* </Anime> */}
-              </span>
-            </span>
-          </h1>
-
-          {/* <Anime
-            easing='easeInExpo'
-            duration={3000}
-            direction='reverse'
-            // loop={true}
-            delay={100}
-            translateY='100em'
-            scale={[1, 0.1]}
-            // rotate='1080'
-          > */}
-          <span className='handle'>@TatTran22</span>
+          <div className='greeting'>Hi, my name is</div>
+          <div className='text-wrapper'>
+            <div className='letters big-heading'>
+              <span className='bio'>T</span>
+              <span className='bio'>a</span>
+              <span className='bio'>t</span>
+              <span className='bio'>&nbsp;</span>
+              <span className='bio'>T</span>
+              <span className='bio'>r</span>
+              <span className='bio'>a</span>
+              <span className='bio'>n</span>
+              <span className='bio'>.</span>
+            </div>
+            <span className='handle'>@TatTran22</span>
+          </div>
           <h2>Welcome to my blog! ✌</h2>
           <SocialList />
-          {/* </Anime> */}
         </div>
       </div>
       <style jsx>{`
@@ -68,15 +44,24 @@ export default function Index() {
           padding: 0 1.5rem;
           overflow: hidden;
         }
-        h1 {
+        .greeting {
+          font-size: clamp(15px, 3vw, 30px);
+          font-weight: 500;
+          line-height: 1.1;
+        }
+        .big-heading {
+          font-size: clamp(40px, 8vw, 80px);
+          font-weight: 700;
+          margin: 0px;
           position: relative;
           width: 100%;
           letter-spacing: 0.2rem;
         }
 
+        h1,
         h2 {
           font-size: 1.75rem;
-          font-weight: 400;
+          font-weight: 500;
           line-height: 1.25;
         }
 
@@ -104,15 +89,6 @@ export default function Index() {
           margin-top: 0.275em;
           color: #9b9b9b;
           letter-spacing: 0.05em;
-        }
-
-        @media (min-width: 769px) {
-          h1 {
-            font-size: 3rem;
-          }
-          h2 {
-            font-size: 2.25rem;
-          }
         }
       `}</style>
     </Layout>
